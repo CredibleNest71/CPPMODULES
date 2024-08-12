@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:06:16 by codespace         #+#    #+#             */
-/*   Updated: 2024/06/14 13:49:10 by codespace        ###   ########.fr       */
+/*   Updated: 2024/06/17 10:27:07 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <cctype>
 
 std::string replace(std::string str, std::string s1, std::string s2){
     std::string	ret;
@@ -31,15 +32,40 @@ std::string replace(std::string str, std::string s1, std::string s2){
 	return ret;
 }
 
+int	check_str(char *str){
+	int	i = 0;
+	while (str[i]){
+		if (!isalnum(str[i]))
+			if (str[i] != '.' && str[i] != '_')
+				return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	check_input(int ac, char **av){
+    if (ac != 4){
+	std::cout << "incorrect input\n";
+	return 1;
+	}
+	for (int i = 1; i < 4; i++){
+		if (check_str(av[i])){
+			std::cout << "Invalid input\n";
+			return (1);
+		}
+	}
+	return (0);
+}
+
 int main(int ac, char **av)
 {
-    if (ac != 4){
-		std::cout << "incorrect input\n";
-		return 1;
-	}
+	if (check_input)
+		return (1);
+
 	std::string	filename = av[1];
 	std::string	s1 = av[2];
 	std::string	s2 = av[3];
+	std::string	line;
 
 	std::ifstream	infile(filename);
 	if (!infile.is_open()){
@@ -54,7 +80,6 @@ int main(int ac, char **av)
 		return 1;
 	}
 
-	std::string	line;
 	while (std::getline(infile, line)){
 		line = replace(line, s1, s2);
 		outfile << line << std::endl;

@@ -6,17 +6,17 @@
 #    By: mresch <mresch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/25 18:12:07 by mresch            #+#    #+#              #
-#    Updated: 2024/06/17 10:30:31 by mresch           ###   ########.fr        #
+#    Updated: 2024/06/17 10:33:17 by mresch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C		=	clang++
 
-NAME	=	brains
+NAME	=	human
 
 FLAGS	=	-Wall -Wextra -Werror
 
-SRC		=	main.cpp newZombie.cpp randomChump.cpp
+SRC		=	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
