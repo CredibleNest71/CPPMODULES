@@ -5,32 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 11:16:54 by codespace         #+#    #+#             */
-/*   Updated: 2024/08/12 17:04:36 by mresch           ###   ########.fr       */
+/*   Created: 2024/10/16 11:29:05 by mresch            #+#    #+#             */
+/*   Updated: 2024/10/16 14:16:01 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Animal.h"
+#include "Cat.h"
+#include "Dog.h"
+#include "WrongAnimal.h"
+#include "WrongCat.h"
+int main()
+{
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const WrongAnimal* i = new WrongCat();
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    i->makeSound();
+    j->makeSound();
+    meta->makeSound();
 
-int	main(){
-	std::string	input;
-	Zombie		*zomb;
-	while (1){
-		std::cin >> input;
-		if (input == "new")
-		{
-			std::cin >> input;
-			zomb = newZombie(input);
-			zomb->announce();
-			delete zomb;
-		}
-		else if (input == "chump")
-		{
-			std::cin >> input;
-			randomChump(input);
-		}
-		else if (input == "exit")
-			break;
-	}
-	return (0);
+    const WrongAnimal* w = new WrongCat();
+    w->makeSound();
+    delete w;
+    delete j;
+    delete i;
+    delete meta;
+return 0;
 }

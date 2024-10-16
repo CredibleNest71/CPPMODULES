@@ -5,32 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 11:16:54 by codespace         #+#    #+#             */
-/*   Updated: 2024/08/12 17:04:36 by mresch           ###   ########.fr       */
+/*   Created: 2024/10/01 15:59:55 by mresch            #+#    #+#             */
+/*   Updated: 2024/10/14 15:43:03 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ClapTrap.h"
+#include "ScavTrap.h"
+#include "FragTrap.h"
 
-int	main(){
-	std::string	input;
-	Zombie		*zomb;
-	while (1){
-		std::cin >> input;
-		if (input == "new")
-		{
-			std::cin >> input;
-			zomb = newZombie(input);
-			zomb->announce();
-			delete zomb;
-		}
-		else if (input == "chump")
-		{
-			std::cin >> input;
-			randomChump(input);
-		}
-		else if (input == "exit")
-			break;
-	}
-	return (0);
+int main(){
+    ClapTrap a("Hubert");
+    ClapTrap b("Fred");
+    ClapTrap j;
+    j.attack("someone");
+    a = b;
+    a.attack("Jakob");
+    b.beRepaired(10);
+    b.takeDamage(15);
+
+    ScavTrap c("Nathanael");
+    ScavTrap d(c);
+    d.takeDamage(300);
+    c.attack("Fred");
+    c.guardGate();
+
+    FragTrap e("Henning May");
+    e.highFivesGuys();
+    e.attack("someone");
+    FragTrap f;
+    f = e;
+
+    return (0);
 }

@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 11:16:54 by codespace         #+#    #+#             */
-/*   Updated: 2024/08/12 17:04:36 by mresch           ###   ########.fr       */
+/*   Created: 2024/10/14 16:24:51 by mresch            #+#    #+#             */
+/*   Updated: 2024/10/16 14:12:29 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WRONGANIMAL_H
+# define WRONGANIMAL_H
+# include <iostream>
+# include <cstring>
 
-int	main(){
-	std::string	input;
-	Zombie		*zomb;
-	while (1){
-		std::cin >> input;
-		if (input == "new")
-		{
-			std::cin >> input;
-			zomb = newZombie(input);
-			zomb->announce();
-			delete zomb;
-		}
-		else if (input == "chump")
-		{
-			std::cin >> input;
-			randomChump(input);
-		}
-		else if (input == "exit")
-			break;
-	}
-	return (0);
-}
+class WrongAnimal {
+public:
+    WrongAnimal();
+    virtual ~WrongAnimal();
+    WrongAnimal(const WrongAnimal&);
+
+    WrongAnimal operator=(const WrongAnimal&);
+
+    std::string getType() const;
+    virtual void makeSound() const;
+    
+protected:
+    std::string type;
+};
+
+#endif

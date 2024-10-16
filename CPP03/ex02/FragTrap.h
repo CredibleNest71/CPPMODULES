@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 11:16:54 by codespace         #+#    #+#             */
-/*   Updated: 2024/08/12 17:04:36 by mresch           ###   ########.fr       */
+/*   Created: 2024/10/01 16:50:16 by mresch            #+#    #+#             */
+/*   Updated: 2024/10/14 15:17:04 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FRAGTRAP_H
+# define FRAGTRAP_H
+# include <iostream>
+# include <cstring>
+# include "ClapTrap.h"
 
-int	main(){
-	std::string	input;
-	Zombie		*zomb;
-	while (1){
-		std::cin >> input;
-		if (input == "new")
-		{
-			std::cin >> input;
-			zomb = newZombie(input);
-			zomb->announce();
-			delete zomb;
-		}
-		else if (input == "chump")
-		{
-			std::cin >> input;
-			randomChump(input);
-		}
-		else if (input == "exit")
-			break;
-	}
-	return (0);
-}
+class   FragTrap : public ClapTrap
+{
+public:
+    FragTrap(const std::string& name);
+    FragTrap(const FragTrap& cpy);
+    FragTrap();
+    ~FragTrap();
+
+    FragTrap& operator= (const FragTrap& copy);
+    void highFivesGuys(void);
+};
+
+#endif

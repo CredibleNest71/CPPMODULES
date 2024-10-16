@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 11:16:54 by codespace         #+#    #+#             */
-/*   Updated: 2024/08/12 17:04:36 by mresch           ###   ########.fr       */
+/*   Created: 2024/10/01 16:50:16 by mresch            #+#    #+#             */
+/*   Updated: 2024/10/03 17:26:18 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef SCAVTRAP_H
+# define SCAVTRAP_H
+# include <iostream>
+# include <cstring>
+# include "ClapTrap.h"
 
-int	main(){
-	std::string	input;
-	Zombie		*zomb;
-	while (1){
-		std::cin >> input;
-		if (input == "new")
-		{
-			std::cin >> input;
-			zomb = newZombie(input);
-			zomb->announce();
-			delete zomb;
-		}
-		else if (input == "chump")
-		{
-			std::cin >> input;
-			randomChump(input);
-		}
-		else if (input == "exit")
-			break;
-	}
-	return (0);
-}
+class   ScavTrap : public ClapTrap
+{
+public:
+    ScavTrap(const std::string& name);
+    ScavTrap(const ScavTrap& cpy);
+    ScavTrap();
+    ~ScavTrap();
+
+    ScavTrap& operator= (const ScavTrap& copy);
+    void guardGate();
+};
+
+#endif

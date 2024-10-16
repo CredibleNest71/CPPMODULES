@@ -6,17 +6,17 @@
 #    By: mresch <mresch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/25 18:12:07 by mresch            #+#    #+#              #
-#    Updated: 2024/08/14 17:19:23 by mresch           ###   ########.fr        #
+#    Updated: 2024/10/16 14:04:21 by mresch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C		=	c++
 
-NAME	=	adresses
+NAME	=	animal
 
-FLAGS	=	-Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror -g
 
-SRC		=	main.cpp
+SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
@@ -25,7 +25,7 @@ $(NAME): $(OBJS)
 
 %.o:%.cpp
 		$(C) $(FLAGS) -c $< -o $@
-
+	
 all:	$(NAME)
 
 clean:
