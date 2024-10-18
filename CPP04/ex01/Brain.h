@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Brain.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 12:25:35 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/18 16:23:36 by mresch           ###   ########.fr       */
+/*   Created: 2024/10/18 15:08:06 by mresch            #+#    #+#             */
+/*   Updated: 2024/10/18 15:37:12 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#ifndef BRAIN_H
+# define BRAIN_H
 # include <iostream>
 # include <cstring>
 
-class   Weapon{
+class Brain {
 private:
-    std::string type;
-
+    std::string ideas[100];
 public:
-	Weapon(std::string);
-    std::string	getType(void);
-    void		setType(std::string type);
+    
+    Brain();
+    ~Brain();
+    Brain(const Brain& other);
+    Brain operator=(const Brain& other);
 };
 
 #endif

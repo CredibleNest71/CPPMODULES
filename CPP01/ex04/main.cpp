@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:06:16 by codespace         #+#    #+#             */
-/*   Updated: 2024/06/17 10:27:07 by mresch           ###   ########.fr       */
+/*   Updated: 2024/10/18 16:30:28 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 #include <cctype>
 
-std::string replace(std::string str, std::string s1, std::string s2){
+std::string myreplace(std::string str, std::string s1, std::string s2){
     std::string	ret;
 	size_t		pos = 0;
 	size_t		prev = 0;
@@ -27,7 +27,8 @@ std::string replace(std::string str, std::string s1, std::string s2){
 		pos += s1.length();
 		prev = pos;
 	}
-	ret.append(str, prev, std::string::npos);
+	ret.append(str, prev, str.length() - prev);
+	//ret.append(str, prev, std::string::npos);
 
 	return ret;
 }
@@ -59,7 +60,7 @@ int	check_input(int ac, char **av){
 
 int main(int ac, char **av)
 {
-	if (check_input)
+	if (check_input(ac,av))
 		return (1);
 
 	std::string	filename = av[1];
@@ -67,13 +68,14 @@ int main(int ac, char **av)
 	std::string	s2 = av[3];
 	std::string	line;
 
-	std::ifstream	infile(filename);
+	std::ifstream	infile(filename.c_str());
 	if (!infile.is_open()){
 		std::cout << "Error opening input file\n";
 		return 1;
 	}
 	
-	std::ofstream	outfile(filename + ".replace");
+	std::string output_filename = filename + ".replace";
+	std::ofstream	outfile(output_filename.c_str());
 	if (!outfile.is_open()){
 		std::cout << "Error opening output file\n";
 		infile.close();
@@ -81,7 +83,7 @@ int main(int ac, char **av)
 	}
 
 	while (std::getline(infile, line)){
-		line = replace(line, s1, s2);
+		line = myreplace(line, s1, s2);
 		outfile << line << std::endl;
 	}
 	

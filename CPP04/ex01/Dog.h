@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Dog.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 12:25:35 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/18 16:23:36 by mresch           ###   ########.fr       */
+/*   Created: 2024/10/16 11:42:32 by mresch            #+#    #+#             */
+/*   Updated: 2024/10/18 15:40:52 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#ifndef DOG_H
+# define DOG_H
 # include <iostream>
 # include <cstring>
+# include "Animal.h"
+# include "Brain.h"
 
-class   Weapon{
+class Dog : public Animal{
 private:
-    std::string type;
-
+    Brain*  brain;
 public:
-	Weapon(std::string);
-    std::string	getType(void);
-    void		setType(std::string type);
+    Dog();
+    ~Dog();
+    Dog(const Dog& goodboy);
+
+    Dog operator=(const Dog& goodboy);
+
+    void makeSound()const override;
 };
 
 #endif

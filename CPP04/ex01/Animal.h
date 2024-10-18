@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Animal.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 12:25:35 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/18 16:23:36 by mresch           ###   ########.fr       */
+/*   Created: 2024/10/14 16:24:51 by mresch            #+#    #+#             */
+/*   Updated: 2024/10/16 14:11:44 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#ifndef ANIMAL_H
+# define ANIMAL_H
 # include <iostream>
 # include <cstring>
 
-class   Weapon{
-private:
-    std::string type;
-
+class Animal {
 public:
-	Weapon(std::string);
-    std::string	getType(void);
-    void		setType(std::string type);
+    Animal();
+    virtual ~Animal();
+    Animal(const Animal&);
+
+    Animal operator=(const Animal&);
+
+    std::string getType() const;
+    virtual void makeSound() const;
+    
+protected:
+    std::string type;
 };
 
 #endif

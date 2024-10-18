@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 12:25:35 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/18 16:23:36 by mresch           ###   ########.fr       */
+/*   Created: 2024/10/18 15:13:50 by mresch            #+#    #+#             */
+/*   Updated: 2024/10/18 15:44:27 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
-# include <iostream>
-# include <cstring>
+#include "Brain.h"
 
-class   Weapon{
-private:
-    std::string type;
-
-public:
-	Weapon(std::string);
-    std::string	getType(void);
-    void		setType(std::string type);
-};
-
-#endif
+Brain::Brain(){}
+Brain::~Brain(){}
+Brain::Brain(const Brain& other){
+    *this = other;
+}
+Brain Brain::operator=(const Brain& other){
+    if (this == &other)
+        return *this;
+    else
+        std::copy(other.ideas, other.ideas + 100, ideas);
+    return *this;
+}

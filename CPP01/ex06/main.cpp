@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:06:35 by mresch            #+#    #+#             */
-/*   Updated: 2024/06/17 12:33:32 by mresch           ###   ########.fr       */
+/*   Updated: 2024/10/18 13:54:35 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,12 @@ void filtered(Harl &harl, int filter){
     int idx;
     std::string input;
     while (1){
+        std::cout << "Commands: [DEBUG|INFO|WARNING|ERROR|exit]" << std::endl;
         std::cin >> input;
+		if (std::cin.eof()){
+			std::cout << "End of input (EOF) detected." << std::endl;
+			break;
+		}
         if (input == "exit")
             break ;
         idx = get_idx(&input[0]);

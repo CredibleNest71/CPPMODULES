@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 11:30:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/06/14 11:53:01 by codespace        ###   ########.fr       */
+/*   Updated: 2024/10/18 16:15:41 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int main(){
-    Zombie  *horde = zombieHorde(5, "Evelyn");
-    announceHorde(horde, 5);
-    delete horde;
+    int n = 5;
+    Zombie  *horde = zombieHorde(n, "Evelyn");
+    announceHorde(horde, n);
+    if (horde != NULL)
+        delete[] horde;
     return 0;
 }

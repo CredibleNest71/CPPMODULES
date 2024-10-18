@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:25:35 by codespace         #+#    #+#             */
-/*   Updated: 2024/06/14 13:02:00 by codespace        ###   ########.fr       */
+/*   Updated: 2024/10/18 16:24:02 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 # include "Weapon.hpp"
 
 class   HumanA{
+private:
+	std::string	name;
+	Weapon&		weapon;
 
 public:
-	Weapon&		weapon;
-	std::string	name;
 
 	HumanA(std::string name, Weapon &weapon);
 	~HumanA(void);
