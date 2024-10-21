@@ -6,7 +6,7 @@
 #    By: mresch <mresch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/25 18:12:07 by mresch            #+#    #+#              #
-#    Updated: 2024/08/14 17:20:45 by mresch           ###   ########.fr        #
+#    Updated: 2024/10/21 14:37:50 by mresch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ C		=	c++
 
 NAME	=	fixed
 
-FLAGS	=	-Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRC		=	main.cpp Fixed.cpp
 

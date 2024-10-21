@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:06:35 by mresch            #+#    #+#             */
-/*   Updated: 2024/10/18 13:54:35 by mresch           ###   ########.fr       */
+/*   Updated: 2024/10/21 13:34:53 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,39 +21,25 @@ int get_idx(char *input){
     return 5;
 }
 
-void filtered(Harl &harl, int filter){
+void filtered(Harl &harl, std::string input){
     int idx;
-    std::string input;
-    while (1){
-        std::cout << "Commands: [DEBUG|INFO|WARNING|ERROR|exit]" << std::endl;
-        std::cin >> input;
-		if (std::cin.eof()){
-			std::cout << "End of input (EOF) detected." << std::endl;
-			break;
-		}
-        if (input == "exit")
+    idx = get_idx(&input[0]);
+    switch (idx) {
+        case 0:
+            harl.complain("DEBUG");
+            idx++;
+        case 1:
+            harl.complain("INFO");
+            idx++;
+        case 2:
+            harl.complain("WARNING");
+            idx++;
+        case 3:
+            harl.complain("ERROR");
+            idx++;
             break ;
-        idx = get_idx(&input[0]);
-        if (idx < filter){
-        std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;        
-            continue ;
-        }
-        switch (idx) {
-            case 0:
-                harl.complain("DEBUG");
-                break;
-            case 1:
-                harl.complain("INFO");
-                break;
-            case 2:
-                harl.complain("WARNING");
-                break;
-            case 3:
-                harl.complain("ERROR");
-                break ;
-            default:
-                std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-        }
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
 }
 
@@ -62,8 +48,10 @@ int check_input(int ac, char **av, int *filter){
         std::cout << "too many Arguments" << std::endl;
         return (1);
     }
-    if (ac == 1)
-        *filter = 0;
+    if (ac == 1){
+        std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+        return (1);
+    }
     else
         *filter = get_idx(av[1]);
     return (0);
@@ -74,6 +62,6 @@ int main(int ac, char **av){
     Harl    harl;
     if (check_input(ac, av, &filter))
         return (1);
-    filtered(harl, filter);
+    filtered(harl, av[1]);
     return 0;
 }

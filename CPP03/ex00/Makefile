@@ -6,7 +6,7 @@
 #    By: mresch <mresch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/25 18:12:07 by mresch            #+#    #+#              #
-#    Updated: 2024/10/01 16:00:55 by mresch           ###   ########.fr        #
+#    Updated: 2024/10/21 14:38:07 by mresch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ C		=	c++
 
 NAME	=	claptrap
 
-FLAGS	=	-Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRC		=	main.cpp ClapTrap.cpp
 

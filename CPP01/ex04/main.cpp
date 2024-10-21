@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:06:16 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/18 16:30:28 by mresch           ###   ########.fr       */
+/*   Updated: 2024/10/21 13:16:50 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,9 @@ int	check_input(int ac, char **av){
 	std::cout << "incorrect input\n";
 	return 1;
 	}
-	for (int i = 1; i < 4; i++){
-		if (check_str(av[i])){
-			std::cout << "Invalid input\n";
-			return (1);
-		}
+	if (check_str(av[1])){
+		std::cout << "Invalid input\n";
+		return (1);
 	}
 	return (0);
 }
