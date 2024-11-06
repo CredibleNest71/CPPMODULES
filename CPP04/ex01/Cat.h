@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:42:32 by mresch            #+#    #+#             */
-/*   Updated: 2024/10/18 15:40:47 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/06 13:30:37 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ public:
     ~Cat();
     Cat(const Cat& goodboy);
 
-    Cat operator=(const Cat& goodboy);
+    Cat& operator=(const Cat& goodboy);
 
-    void makeSound()const override;
+    void makeSound()const;
+    void utterIdea() const;
+    void getIdea(const std::string idea);
 };
 
 #endif

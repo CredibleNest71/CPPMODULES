@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:08:06 by mresch            #+#    #+#             */
-/*   Updated: 2024/11/06 15:10:59 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/06 11:49:21 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
     Brain();
     ~Brain();
     Brain(const Brain& other);
-    Brain& operator=(const Brain& other);
+    Brain operator=(const Brain& other);
     void getIdeas() const;
     void setIdea(const std::string idea);
 };

@@ -11,11 +11,9 @@ Dog::~Dog() {
 Dog::Dog(const Dog& goodboy) : Animal(goodboy){
     *this = goodboy;
 }
-Dog& Dog::operator=(const Dog& goodboy){
+Dog Dog::operator=(const Dog& goodboy){
     if (this == &goodboy)
         return *this;
-    type = goodboy.type;
-    brain = new Brain(*goodboy.brain);
     return *this;
 }
 

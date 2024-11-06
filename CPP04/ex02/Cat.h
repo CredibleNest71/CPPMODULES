@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.h                                            :+:      :+:    :+:   */
+/*   Cat.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 15:08:06 by mresch            #+#    #+#             */
-/*   Updated: 2024/11/06 15:10:59 by mresch           ###   ########.fr       */
+/*   Created: 2024/10/16 11:42:32 by mresch            #+#    #+#             */
+/*   Updated: 2024/11/06 11:48:39 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_H
-# define BRAIN_H
+#ifndef CAT_H
+# define CAT_H
 # include <iostream>
 # include <cstring>
-# include <string>
+# include "Animal.h"
+# include "Brain.h"
 
-class Brain {
+
+class Cat : public Animal{
 private:
-    std::string ideas[100];
+    Brain*   brain;
 public:
-    
-    Brain();
-    ~Brain();
-    Brain(const Brain& other);
-    Brain& operator=(const Brain& other);
-    void getIdeas() const;
-    void setIdea(const std::string idea);
+    Cat();
+    ~Cat();
+    Cat(const Cat& goodboy);
+
+    Cat operator=(const Cat& goodboy);
+
+    void makeSound()const;
+    void utterIdea() const;
+    void getIdea(const std::string idea);
 };
 
 #endif

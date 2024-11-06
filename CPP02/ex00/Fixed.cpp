@@ -6,15 +6,14 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:01:44 by mresch            #+#    #+#             */
-/*   Updated: 2024/08/12 15:30:49 by mresch           ###   ########.fr       */
+/*   Updated: 2024/10/31 12:46:31 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(){
+Fixed::Fixed() : val(0) {
     std::cout << "Default constructor called" << std::endl;
-    this->val = 0;
 }
 
 Fixed::Fixed(const Fixed& copy){

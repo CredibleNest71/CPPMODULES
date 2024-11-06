@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:01:44 by mresch            #+#    #+#             */
-/*   Updated: 2024/08/14 16:17:58 by mresch           ###   ########.fr       */
+/*   Updated: 2024/10/31 13:02:02 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ float Fixed::toFloat( void ) const{
 	int	fac = 1;
 	for (int i = 0; i < this->frac_bits; i++)
 		fac *= 2;
-	
-	return (float) this->val / fac;
+	float ret;
+    ret = (float) val;
+	return ret / fac;
 }
 
 int Fixed::toInt( void ) const{

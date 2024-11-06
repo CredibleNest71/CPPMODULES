@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:02 by mresch            #+#    #+#             */
-/*   Updated: 2024/10/03 17:36:49 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/06 10:44:52 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,3 @@ void ClapTrap::beRepaired(unsigned int amount){
     _hp += amount;
     std::cout << "Claptrap " << _name << " repaired itself for " << (int)amount << " points\n";
 }
-
-//GET SET
-
-// std::string ClapTrap::getName() const{
-//     return _name;
-// }

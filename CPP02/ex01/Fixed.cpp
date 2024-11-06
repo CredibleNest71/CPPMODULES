@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:01:44 by mresch            #+#    #+#             */
-/*   Updated: 2024/08/12 18:06:47 by mresch           ###   ########.fr       */
+/*   Updated: 2024/10/31 12:50:04 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 Fixed::Fixed(){
     std::cout << "Default constructor called" << std::endl;
-    this->val = 0;
+    val = 0;
 }
 
 Fixed::Fixed(const int n){
     std::cout << "Int constructor called" << std::endl;
-    this->val = n << this->frac_bits;
+    val = n << frac_bits;
 }
 
 Fixed::Fixed(const float f){
     std::cout << "Float constructor called" << std::endl;
 	int	fac = 1;
-	for (int i = 0; i < this->frac_bits; i++)
+	for (int i = 0; i < frac_bits; i++)
 		fac *= 2;
-	this->val = f * fac;
+	val = f * fac;
 }
 
 Fixed::Fixed(const Fixed& copy){
@@ -41,26 +41,26 @@ Fixed::~Fixed(){
 
 float Fixed::toFloat( void ) const{
 	int	fac = 1;
-	for (int i = 0; i < this->frac_bits; i++)
+	for (int i = 0; i < frac_bits; i++)
 		fac *= 2;
 	
-	return (float) this->val / fac;
+	return (float) val / fac;
 }
 
 int Fixed::toInt( void ) const{
-	return val >> this->frac_bits;
+	return val >> frac_bits;
 }
 Fixed& Fixed::operator=(const Fixed& copy){
     std::cout << "Copy assignment operator called" << std::endl;
-    this->val = copy.val;
+    val = copy.val;
     return *this;
 }
 int Fixed::getRawBits( void ) const {
     std::cout << "getRawBits member function called" << std::endl;
-    return this->val;
+    return val;
 }
 void Fixed::setRawBits( int const raw ){
-    this->val = raw;
+    val = raw;
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& num){

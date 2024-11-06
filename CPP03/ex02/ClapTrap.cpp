@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:02 by mresch            #+#    #+#             */
-/*   Updated: 2024/10/03 17:36:49 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/06 10:43:26 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ ClapTrap::ClapTrap(std::string name):_name(name){
     this->_energy = 20;
     this->_dmg = 0;
 }
+
 ClapTrap::~ClapTrap(){
     std::cout << "Claptrap " << this->_name << " has been deconstructed...\n";
 }
+
 ClapTrap::ClapTrap(const ClapTrap& cpy){
     *this = cpy;
 }
@@ -54,10 +56,12 @@ void ClapTrap::attack(const std::string& target){
     _energy--;
     std::cout << "Claptrap " << _name << " attacks " << target << " for " << _dmg << " damage\n";
 }
+
 void ClapTrap::takeDamage(unsigned int amount){
     _hp -= amount;
     std::cout << "\"OUCH!\" says " << _name << ". He has taken " << amount << " damage\n";
 }
+
 void ClapTrap::beRepaired(unsigned int amount){
     if (_energy == 0)
     {

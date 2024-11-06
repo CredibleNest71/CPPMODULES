@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:51:32 by mresch            #+#    #+#             */
-/*   Updated: 2024/08/12 18:12:06 by mresch           ###   ########.fr       */
+/*   Updated: 2024/10/31 12:48:20 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ public:
 	Fixed(const Fixed& copy);
 	~Fixed();
 	//memberfuncs
-	float toFloat( void ) const;
-	int toInt( void ) const;
-	int getRawBits( void ) const;
-	void setRawBits( int const raw );
+	float 	toFloat( void ) const;
+	int 	toInt( void ) const;
+	int 	getRawBits( void ) const;
+	void 	setRawBits( int const raw );
 	//operators
-	Fixed& operator= (const Fixed& copy);
+	Fixed& 	operator= (const Fixed& copy);
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& num);

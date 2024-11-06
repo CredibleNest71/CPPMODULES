@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.h                                            :+:      :+:    :+:   */
+/*   Animal.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 15:08:06 by mresch            #+#    #+#             */
-/*   Updated: 2024/11/06 15:10:59 by mresch           ###   ########.fr       */
+/*   Created: 2024/10/14 16:24:51 by mresch            #+#    #+#             */
+/*   Updated: 2024/11/06 13:22:49 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_H
-# define BRAIN_H
+#ifndef ANIMAL_H
+# define ANIMAL_H
 # include <iostream>
 # include <cstring>
-# include <string>
 
-class Brain {
-private:
-    std::string ideas[100];
+class Animal {
 public:
-    
-    Brain();
-    ~Brain();
-    Brain(const Brain& other);
-    Brain& operator=(const Brain& other);
-    void getIdeas() const;
-    void setIdea(const std::string idea);
+    Animal();
+    Animal(const Animal&);
+    Animal& operator=(const Animal&);
+
+    virtual ~Animal(){}
+
+    std::string getType() const;
+    virtual void makeSound() const = 0;
+    virtual void utterIdea() const = 0;
+    virtual void getIdea(const std::string idea) = 0;
+
+protected:
+    std::string type;
 };
 
 #endif
