@@ -1,0 +1,77 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/05 16:04:49 by mresch            #+#    #+#             */
+/*   Updated: 2024/12/12 15:14:44 by mresch           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/AForm.h"
+#include "../includes/Bureaucrat.h"
+
+AForm::AForm(): name("some name"), target(NULL), grade(150), exec(0), signd(false) {}
+AForm::AForm(int grade, int exec, std::string target, std::string name) : name(name), target(target), grade(grade), exec(exec), signd(false) {}
+AForm::~AForm(){}
+AForm::AForm(const AForm& copy) : target(copy.target), grade(copy.grade), exec(copy.exec) {}
+AForm& AForm::operator=(const AForm& copy){
+    this->signd = copy.signd;
+    return *this;
+}
+
+const char* AForm::GradeTooHighException::what() const throw(){
+    return ("Grade too high...");
+}
+
+const char* AForm::GradeTooLowException::what() const throw(){
+    return ("Grade too low...");
+}
+
+const char* AForm::CannotExecuteNotSigned::what() const throw(){
+    return ("Cannot execute unsigned form...");
+}
+std::string AForm::getName() const{
+    return name;
+}
+int         AForm::getGrade() const{
+    return grade;
+}
+bool        AForm::getSigned() const{
+    return signd;
+}
+int         AForm::getExec() const{
+    return exec;
+}
+std::string AForm::getTarget() const{
+    return target;
+}
+bool        AForm::beSigned(Bureaucrat& dan){
+    if (dan.getGrade() <= grade){
+        signd = true;
+        return true;
+    }
+    else {
+        throw(GradeTooLowException());
+    }
+    return false;
+}
+
+bool            AForm::execute(Bureaucrat const & bu) const{
+    if (bu.getGrade() > getExec())
+        throw GradeTooLowException();
+    if (!getSigned())
+        throw CannotExecuteNotSigned();
+    return executeForReal();
+}
+
+std::ostream& operator<<(std::ostream& os, const AForm& sheet){
+    os << "Form: " << sheet.getName() << " [" << sheet.getGrade() << "]";
+    if (sheet.getSigned())
+        os << " has been signed" << std::endl;
+    else
+        os << " has not beet signed yet" << std::endl;
+    return os;
+}
