@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:04:49 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/12 15:14:44 by mresch           ###   ########.fr       */
+/*   Updated: 2024/12/18 18:37:14 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ bool            AForm::execute(Bureaucrat const & bu) const{
 std::ostream& operator<<(std::ostream& os, const AForm& sheet){
     os << "Form: " << sheet.getName() << " [" << sheet.getGrade() << "]";
     if (sheet.getSigned())
-        os << " has been signed" << std::endl;
+        os << "[\u2713]";
     else
-        os << " has not beet signed yet" << std::endl;
+        os << "[\u2A09]";
     return os;
 }

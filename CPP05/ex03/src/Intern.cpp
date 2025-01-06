@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:37:45 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/18 16:58:46 by mresch           ###   ########.fr       */
+/*   Updated: 2024/12/18 18:36:23 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,16 @@ static AForm *makeShrubbery(const std::string target){
 }
 
 AForm *Intern::makeForm(std::string form, std::string target){
+    AForm *final;
     std::string compare = processString(form);
-    std::string names[3] = {"robotomyrequest", "shrubberycreation", "presidentialpardon"};
+    std::string names[3] = { "presidentialpardon", "robotomyrequest", "shrubberycreation"};
     AForm *(*createForm[3])(std::string target) = {makePresident, makeRobotomy, makeShrubbery};
     for (int i = 0; i < 3; i++){
-        if (names[i] == compare)
-            return (createForm[i](target));
+        if (names[i] == compare){
+            final = createForm[i](target);
+            std::cout << "Intern creates " << *final << std::endl;
+            return (final);
+        }
     }
     throw(InvalidFormException());
 }

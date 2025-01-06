@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:43:48 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/18 17:17:55 by mresch           ###   ########.fr       */
+/*   Updated: 2024/12/18 18:38:30 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,17 @@ int main(){
         someform = Jim.makeForm("presialpardon", "hey"); //ERROR 
         //matt.signForm(*someform);
         someform->beSigned(matt);
+        delete someform;
         std::cout << "thats some form:" << *someform << std::endl;
     } 
     catch (...){
         std::cerr << "oh oh oh " << std::endl;
     }
-    {
-        Intern someRandomIntern;
-        Form* rrf;
-        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    }
+    Intern someRandomIntern;
+    Form* rrf;
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    matt.signForm(*rrf);
+    std::cout << *rrf << std::endl;
+    delete rrf;
     return 0;   
 }
