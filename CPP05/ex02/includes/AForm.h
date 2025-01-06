@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:53:25 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/18 17:46:44 by mresch           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:21:24 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ public:
 
 //MEMBER FUNCS
     bool            beSigned(Bureaucrat& dan);
-    bool            execute(Bureaucrat const & bu) const;
-    virtual bool    executeForReal() const = 0;
+    virtual bool    execute(Bureaucrat const & bu) const = 0;
+    virtual bool    check(Bureaucrat const & bu) const;
 
 //EXCEPTIONS
     class GradeTooHighException : public std::exception {

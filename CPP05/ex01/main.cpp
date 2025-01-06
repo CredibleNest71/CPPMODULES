@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:43:48 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/18 18:15:59 by mresch           ###   ########.fr       */
+/*   Updated: 2025/01/06 15:27:35 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@ int main(){
         b.beSigned(dave);
         c.beSigned(dave);
     }
-    catch (...) {
-        std::cerr << "Dave messed it up..." << std::endl;
+    catch (Form::GradeTooLowException &err) {
+        std::cerr << "Caught: Dave messed it up..." << err.what() << std::endl;
+    }
+    catch (Form::GradeTooHighException &err) {
+        std::cerr << "Caught: Dave messed it up..." << err.what() << std::endl;
     }
     
     matt.signForm(c);
     matt.signForm(b);
-    std::cout << "\n" << matt << b << c << std::endl;
+    std::cout << "\n" << matt << b << "\n" << c << std::endl;
     
     return 0;
 }

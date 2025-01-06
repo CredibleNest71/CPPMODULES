@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:04:49 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/18 18:39:44 by mresch           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:23:04 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,16 @@ bool        AForm::beSigned(Bureaucrat& dan){
     return false;
 }
 
-bool            AForm::execute(Bureaucrat const & bu) const{
-    if (bu.getGrade() > getExec())
+bool            AForm::check(Bureaucrat const & bu) const{
+    if (bu.getGrade() > getExec()){
         throw GradeTooLowException();
-    if (!getSigned())
+        return (false);
+    }
+    if (!getSigned()){
         throw CannotExecuteNotSigned();
-    return executeForReal();
+        return (false);
+    }
+    return (true);
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& sheet){

@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:48:37 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/12 15:16:25 by mresch           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:26:59 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm(ROBO_GRADE, ROBO_EXEC, "", "R
 RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm(ROBO_GRADE, ROBO_EXEC, target, "Robotomy Request Form"){}
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &cpy) : AForm(ROBO_GRADE, ROBO_EXEC, cpy.getTarget(), "Robotomy Request Form"){}
 RobotomyRequestForm::~RobotomyRequestForm(){}
-bool RobotomyRequestForm::executeForReal()const{
+bool RobotomyRequestForm::execute(Bureaucrat const &bu)const{
+    if (!check(bu))
+        return false;
     std::srand(std::time(0));
 
     int rand = std::rand();

@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:16:13 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/12 15:16:29 by mresch           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:27:04 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(SHRUB_G
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &cpy) : AForm(SHRUB_GRADE, SHRUB_EXEC, cpy.getTarget(), "Shrubbery Creation Form"){}
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
 // MEMBER
-bool ShrubberyCreationForm::executeForReal()const{
+bool ShrubberyCreationForm::execute(Bureaucrat const &bu)const{
+    if (!check(bu))
+        return false;
     std::string name = getTarget() + "_shrubbery";
     std::ofstream file(name.c_str());
     if (!file.is_open())

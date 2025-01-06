@@ -6,17 +6,17 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:04:49 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/18 18:40:02 by mresch           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:33:40 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.h"
 #include "Bureaucrat.h"
 
-Form::Form(): name("some Document"), grade(150), signd(false) {}
-Form::Form(std::string name, int grade) : name(name), grade(grade), signd(false) {}
+Form::Form(): name("some Document"), grade(150), exec(1), signd(false) {}
+Form::Form(std::string name, int grade) : name(name), grade(grade), exec(1), signd(false) {}
 Form::~Form(){}
-Form::Form(const Form& copy) : name(copy.name), grade(copy.grade) {}
+Form::Form(const Form& copy) : name(copy.name), grade(copy.grade), exec(1) {}
 Form& Form::operator=(const Form& copy){
     this->signd = copy.signd;
     return *this;
@@ -35,6 +35,10 @@ std::string Form::getName() const{
 int         Form::getGrade() const{
     return grade;
 }
+int        Form::getExec() const{
+    return exec;
+}
+
 bool        Form::getSigned() const{
     return signd;
 }

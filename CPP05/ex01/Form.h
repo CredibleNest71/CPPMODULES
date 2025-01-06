@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:53:25 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/11 14:07:39 by mresch           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:34:30 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ private:
 //ATRIBUTES
     const std::string   name;
     const int           grade;
+    const int           exec;
     bool                signd;
     
 public:
@@ -38,6 +39,7 @@ public:
     std::string getName() const;
     int         getGrade() const;
     bool        getSigned() const;
+    int         getExec() const;
 
 //MEMBER FUNCS
     bool        beSigned(Bureaucrat& dan);

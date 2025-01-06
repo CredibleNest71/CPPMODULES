@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:37:45 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/18 18:36:23 by mresch           ###   ########.fr       */
+/*   Updated: 2025/01/06 15:34:47 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ AForm *Intern::makeForm(std::string form, std::string target){
             return (final);
         }
     }
+    std::cerr << "Intern could not create Form" << std::endl;
     throw(InvalidFormException());
 }
 

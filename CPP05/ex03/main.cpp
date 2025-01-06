@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:43:48 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/18 18:38:30 by mresch           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:19:45 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,20 +74,27 @@ int main(){
         Intern Jim;
         AForm *someform;
         //someform = Jim.makeForm("presidentialpardon", "hey");
-        someform = Jim.makeForm("presialpardon", "hey"); //ERROR 
+        someform = Jim.makeForm("presidentialpardon", "hey"); //ERROR 
         //matt.signForm(*someform);
         someform->beSigned(matt);
-        delete someform;
         std::cout << "thats some form:" << *someform << std::endl;
+        delete someform;
     } 
     catch (...){
         std::cerr << "oh oh oh " << std::endl;
     }
     Intern someRandomIntern;
     Form* rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    try {
+    rrf = someRandomIntern.makeForm("robotomy rst", "Bender");
     matt.signForm(*rrf);
-    std::cout << *rrf << std::endl;
+    std::cout << "\n" << matt << *rrf << std::endl;
+    matt.executeForm(*rrf);
     delete rrf;
+    }
+    catch (Intern::InvalidFormException &err)
+    {
+        std::cerr << "Caught: " << err.what() << std::endl;
+    }
     return 0;   
 }

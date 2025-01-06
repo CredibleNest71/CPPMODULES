@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:04:46 by mresch            #+#    #+#             */
-/*   Updated: 2024/12/12 15:16:41 by mresch           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:25:53 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ public:
     ShrubberyCreationForm(ShrubberyCreationForm &);
     ~ShrubberyCreationForm();
 // MEMBER
-bool executeForReal()const;
+    bool execute(Bureaucrat const &bu) const;
 };
 #endif
