@@ -3,18 +3,15 @@
 #include "easyfind.hpp"
 
 int main(){
-
     std::cout << "\033[33m" << "VECTOR"<< "\033[0m" << std::endl;
     std::vector<int> vec;
     int search1 = 10;
     int search2 = 123;
     int search3 = 15;
-
     vec.push_back(10);
     vec.push_back(1);
     vec.push_back(123);
     vec.push_back(-10);
-
     std::vector<int>::iterator found;
     found = easyfind(vec, search1);
     std::cout << "Found: " << *found << std::endl;
@@ -26,6 +23,7 @@ int main(){
     } catch(NotFoundException& e) {
         std::cout << e.what() << std::endl;
     }
+
 
     std::cout << "\033[33m" << "LIST"<< "\033[0m" << std::endl;
     std::list<int> list;
