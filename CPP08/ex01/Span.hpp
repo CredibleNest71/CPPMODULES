@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 15:04:59 by mresch            #+#    #+#             */
+/*   Updated: 2025/01/28 15:51:13 by mresch           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*Develop a Span class that can store a maximum of N integers. N is an unsigned int
 variable and will be the only parameter passed to the constructor.
 This class will have a member function called addNumber() to add a single number
@@ -24,14 +36,30 @@ private:
     unsigned int        N;
 public:
     Span();
-    Span(unsigned int);
+    Span(unsigned int maxSize);
     ~Span();
-    Span(Span&);
+    Span(const Span&);
 
     void    addNumber(int);
+    
+    template <typename It>
+    void    addRange(It begin, It end){
+        int num = std::distance(begin, end);
+        if (v.size() + num > N)
+            throw OutOfRangeException();
+        v.insert(v.end(), begin, end);
+    }
+    
     int     shortestSpan();
     int     longestSpan();
+    std::vector<int>    getV() const;
 
     Span& operator=(const Span& copy);
+
+    class OutOfRangeException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+    };
 };
+std::ostream& operator<<(std::ostream& os, const Span& span);
 #endif
