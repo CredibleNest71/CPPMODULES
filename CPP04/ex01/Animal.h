@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:24:51 by mresch            #+#    #+#             */
-/*   Updated: 2024/11/06 14:44:46 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/07 13:44:52 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
     std::string getType() const;
     virtual void makeSound() const;
     virtual void utterIdea() const;
-    virtual void getIdea(const std::string idea);
+    virtual void getIdea(const std::string idea, int idx);
 protected:
     std::string type;
 };

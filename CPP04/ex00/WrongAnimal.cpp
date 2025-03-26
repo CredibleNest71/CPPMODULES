@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 13:58:42 by mresch            #+#    #+#             */
-/*   Updated: 2024/10/16 13:58:59 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/14 10:37:17 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal& other){
     *this = other;
 }
 
-WrongAnimal WrongAnimal::operator=(const WrongAnimal& other){
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other){
     if (this == &other){
         return *this;
     }

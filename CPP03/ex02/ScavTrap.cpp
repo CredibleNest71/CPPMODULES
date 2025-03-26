@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:52:10 by mresch            #+#    #+#             */
-/*   Updated: 2024/10/14 15:19:15 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/08 19:54:37 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,13 @@ ScavTrap& ScavTrap::operator= (const ScavTrap& copy) {
     _dmg = copy._dmg;
     std::cout << "Scav Assignement was used" << std::endl ;
     return *this;
+}
+void ScavTrap::attack(const std::string& target){
+    if (_energy == 0)
+    {
+        std::cout << "ScavTrap " << _name << " is too tired :(\n";
+        return ;
+    }
+    _energy--;
+    std::cout << "ScavTrap " << _name << " attacks " << target << " for " << _dmg << " damage\n";
 }

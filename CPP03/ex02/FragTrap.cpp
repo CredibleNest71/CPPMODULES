@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:52:10 by mresch            #+#    #+#             */
-/*   Updated: 2024/10/14 15:25:17 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/08 19:55:29 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ FragTrap::FragTrap() : ClapTrap(){
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name){
     _hp = 100;
-    _energy = 50;
-    _dmg = 20;
+    _energy = 100;
+    _dmg = 30;
     std::cout << "it's a FragTRAP!! :O" << std::endl ;
 }
 
@@ -48,4 +48,13 @@ FragTrap& FragTrap::operator= (const FragTrap& copy) {
     _dmg = copy._dmg;
     std::cout << "Frag Assignement was used" << std::endl ;
     return *this;
+}
+void FragTrap::attack(const std::string& target){
+    if (_energy == 0)
+    {
+        std::cout << "FragTrap " << _name << " is too tired :(\n";
+        return ;
+    }
+    _energy--;
+    std::cout << "FragTrap " << _name << " attacks " << target << " for " << _dmg << " damage\n";
 }

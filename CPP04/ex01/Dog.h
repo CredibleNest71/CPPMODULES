@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:42:32 by mresch            #+#    #+#             */
-/*   Updated: 2024/11/06 13:30:33 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/07 13:44:08 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 
     void makeSound()const;
     void utterIdea() const;
-    void getIdea(const std::string idea);
+    void getIdea(const std::string idea, int idx);
 
 };
 

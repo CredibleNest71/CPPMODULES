@@ -21,4 +21,5 @@ typename T::iterator easyfind(T &vec, int n){
         throw NotFoundException();
     return it;
 }
+
 #endif

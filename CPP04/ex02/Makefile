@@ -6,7 +6,7 @@
 #    By: mresch <mresch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/25 18:12:07 by mresch            #+#    #+#              #
-#    Updated: 2024/11/06 13:23:01 by mresch           ###   ########.fr        #
+#    Updated: 2024/11/07 14:59:15 by mresch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME	=	animals_with_brains2
 
 FLAGS	=	-Wall -Wextra -Werror -g -std=c++98
 
-SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+SRC		=	main.cpp Animal.cpp Dog.cpp Brain.cpp Cat.cpp 
 
 OBJS	=	$(SRC:.cpp=.o)
 

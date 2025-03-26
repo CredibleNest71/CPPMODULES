@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:00 by mresch            #+#    #+#             */
-/*   Updated: 2024/11/06 12:42:16 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/13 13:01:04 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ public:
     ClapTrap(std::string name);
     ~ClapTrap();
     ClapTrap();
-    ClapTrap operator= (const ClapTrap& copy);
+    ClapTrap(const ClapTrap& cpy);
+
+    ClapTrap& operator= (const ClapTrap& copy);
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);

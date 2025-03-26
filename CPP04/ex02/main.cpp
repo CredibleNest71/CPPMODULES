@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:29:05 by mresch            #+#    #+#             */
-/*   Updated: 2024/11/06 13:24:17 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/14 11:51:44 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,36 @@
 #include "Brain.h"
 int main()
 {
-    Dog*  animals[20];
+    std::cout << "\n________________________" << std::endl;
+    std::cout << "\033[1;3;33mCONSTRUTION:\033[0m\n" << std::endl;
+    Animal*  animals[20];
     for (int i = 0; i < 20; i++){
-        animals[i] = new Dog;
+        if (i % 2){
+            animals[i] = new Dog;
+        }
+        else
+            animals[i] = new Cat;
     }
     for (int i = 0; i < 20; i++){
         animals[i]->makeSound();
     }
 
     //check SHALLOWNESS
-    std::cout << "\n\n" << std::endl;
-    animals[0]->utterIdea();
-    animals[1] = animals[0];
-    animals[0]->getIdea("im not a dog!");
-    animals[0]->utterIdea();
-    animals[1]->utterIdea();
-    std::cout << "\n\n" << std::endl;
+    std::cout << "\n________________________" << std::endl;
+    std::cout << "\033[1;3;33mSHALLOWNESS CHECK:\033[0m\n" << std::endl;
 
+    Dog a;
+    Dog b(a);
+    a.setIdea("im not a dog", 0);
+    a.utterIdea();
+    b.utterIdea();  
+    
+    //DECONSTRUCTION
+    std::cout << "\n________________________" << std::endl;
+    std::cout << "\033[1;3;33mDECONSTRUCTION:\033[0m\n" << std::endl;
     for (int i = 0; i < 20; i++){
-        delete animals[i];
+        if (animals[i])
+            delete animals[i];
     }
 
     return 0;

@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:02 by mresch            #+#    #+#             */
-/*   Updated: 2024/11/06 10:44:52 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/13 12:58:39 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,24 @@
 ClapTrap::ClapTrap(){
     std::cout << "An unknown Claptrap appeared" << std::endl;
     _name = "NO-NAME";
-    _hp = 0;
-    _energy = 0;
+    _hp = 10;
+    _energy = 10;
     _dmg = 0;
 }
 
 ClapTrap::ClapTrap(std::string name):_name(name){
     std::cout << "A new Claptrap has been constructed! He shall be known as " << name << "\n";
-    this->_hp = 0;
-    this->_energy = 20;
+    this->_hp = 10;
+    this->_energy = 10;
     this->_dmg = 0;
 }
 ClapTrap::~ClapTrap(){
     std::cout << "Claptrap " << this->_name << " has been deconstructed...\n";
 }
+
 ClapTrap::ClapTrap(const ClapTrap& cpy){
     *this = cpy;
+    std::cout << "A new Claptrap has been constructed! He shall be known as " << _name << "\n";
 }
 
 //OPERATORS

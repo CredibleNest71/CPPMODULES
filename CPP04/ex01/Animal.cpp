@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:24:58 by mresch            #+#    #+#             */
-/*   Updated: 2024/11/06 14:05:51 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/07 13:45:14 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void Animal::makeSound() const {
     std::cout << "i'm an animal and i make animal sounds" << std::endl;
 }
 void Animal::utterIdea() const {}
-void Animal::getIdea(const std::string idea){
-    std::cout << "i dont know what to do with this " << idea << std::endl;
+void Animal::getIdea(const std::string idea, int idx){
+    std::cout << "i dont know what to do with this " << idea << idx << std::endl;
 }

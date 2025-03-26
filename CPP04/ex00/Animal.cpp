@@ -6,13 +6,13 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:24:58 by mresch            #+#    #+#             */
-/*   Updated: 2024/10/24 13:46:02 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/14 10:36:43 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.h"
 
-Animal::Animal(): type(""){
+Animal::Animal(): type("Some Animal"){
 }
 
 Animal::~Animal(){
@@ -28,7 +28,7 @@ Animal::Animal(const Animal& other){
     *this = other;
 }
 
-Animal Animal::operator=(const Animal& other){
+Animal& Animal::operator=(const Animal& other){
     if (this == &other){
         return *this;
     }
