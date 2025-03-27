@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:04:59 by mresch            #+#    #+#             */
-/*   Updated: 2025/03/24 15:43:41 by mresch           ###   ########.fr       */
+/*   Updated: 2025/03/27 15:16:55 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ public:
 
     typedef typename std::stack<T>::container_type cont;
     typedef typename cont::iterator iterator;
-    typedef typename cont::const_iterator const_cont_it;
+    typedef typename cont::const_iterator const_iterator;
 
     iterator begin();
     iterator end();
-    const_cont_it begin() const;
-    const_cont_it end() const;
+    const_iterator begin() const;
+    const_iterator end() const;
 };
 
 #include "MutantStack.tpp"

@@ -9,7 +9,7 @@
 
 class NotFoundException : public std::exception{
 public:
-    const char *what() throw(){
+    const char *what() const throw(){
         return "Could not find element";
     }
 };
