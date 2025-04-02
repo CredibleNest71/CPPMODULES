@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:42:32 by mresch            #+#    #+#             */
-/*   Updated: 2024/11/06 11:49:32 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/07 14:23:19 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ public:
     ~Dog();
     Dog(const Dog& goodboy);
 
-    Dog operator=(const Dog& goodboy);
+    Dog& operator=(const Dog& goodboy);
 
     void makeSound()const;
     void utterIdea() const;
-    void getIdea(const std::string idea);
+    void setIdea(const std::string idea, int idx);
 
 };
 

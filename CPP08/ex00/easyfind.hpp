@@ -9,7 +9,7 @@
 
 class NotFoundException : public std::exception{
 public:
-    const char *what() throw(){
+    const char *what() const throw(){
         return "Could not find element";
     }
 };
@@ -21,4 +21,5 @@ typename T::iterator easyfind(T &vec, int n){
         throw NotFoundException();
     return it;
 }
+
 #endif

@@ -9,12 +9,14 @@ Cat::~Cat() {
     std::cout << "DeCatstructor was called" << std::endl;
 }
 Cat::Cat(const Cat& goodboy) : Animal(goodboy){
+    brain = NULL;
     *this = goodboy;
 }
 Cat& Cat::operator=(const Cat& goodboy){
     if (this == &goodboy)
         return *this;
-    type = goodboy.type;
+    if (brain != NULL)
+        delete brain;
     brain = new Brain(*goodboy.brain);
     return *this;
 }
@@ -25,7 +27,7 @@ void Cat::makeSound()const{
 void Cat::utterIdea() const{
     brain->getIdeas();
 }
-void Cat::getIdea(const std::string idea){
-    brain->setIdea(idea);
+void Cat::getIdea(const std::string idea, int idx){
+    brain->setIdea(idea, idx);
 }
 

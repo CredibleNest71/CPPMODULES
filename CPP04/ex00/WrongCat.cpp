@@ -9,7 +9,7 @@ WrongCat::~WrongCat() {
 WrongCat::WrongCat(const WrongCat& goodboy) : WrongAnimal(goodboy){
     *this = goodboy;
 }
-WrongCat WrongCat::operator=(const WrongCat& goodboy){
+WrongCat& WrongCat::operator=(const WrongCat& goodboy){
     if (this == &goodboy)
         return *this;
     return *this;

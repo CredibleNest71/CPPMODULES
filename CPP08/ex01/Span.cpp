@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:04:57 by mresch            #+#    #+#             */
-/*   Updated: 2025/01/28 15:47:35 by mresch           ###   ########.fr       */
+/*   Updated: 2025/03/24 13:45:07 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,14 @@
             v = copy.v;
         }
     return *this;
-    }
-
-    const char* Span::OutOfRangeException::what() const throw(){
-        return "Out of Range";
-    }
-
-    std::ostream& operator<<(std::ostream& os, const Span& span){
-        size_t k = span.getV().size();
-        for (size_t i = 0; i < k; i++)
-            os << span.getV()[i] << "\n";
-        os << std::endl;
-        return os;
-    }
+}
+const char* Span::OutOfRangeException::what() const throw(){
+    return "Out of Range";
+}
+std::ostream& operator<<(std::ostream& os, const Span& span){
+    size_t k = span.getV().size();
+    for (size_t i = 0; i < k; i++)
+        os << span.getV()[i] << "\n";
+    os << std::endl;
+    return os;
+}

@@ -9,9 +9,8 @@ Dog::~Dog() {
 Dog::Dog(const Dog& goodboy) : Animal(goodboy){
     *this = goodboy;
 }
-Dog Dog::operator=(const Dog& goodboy){
-    if (this == &goodboy)
-        return *this;
+Dog& Dog::operator=(const Dog& goodboy){
+    (void) goodboy;
     return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:42:32 by mresch            #+#    #+#             */
-/*   Updated: 2024/10/24 11:58:51 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/14 10:36:53 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
     ~Cat();
     Cat(const Cat& goodboy);
 
-    Cat operator=(const Cat& goodboy);
+    Cat& operator=(const Cat& goodboy);
 
     void makeSound()const;
 };

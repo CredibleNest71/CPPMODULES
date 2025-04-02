@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:04:59 by mresch            #+#    #+#             */
-/*   Updated: 2025/01/28 15:51:13 by mresch           ###   ########.fr       */
+/*   Updated: 2025/03/24 13:50:16 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,19 @@ public:
     ~Span();
     Span(const Span&);
 
-    void    addNumber(int);
     
     template <typename It>
     void    addRange(It begin, It end){
-        int num = std::distance(begin, end);
+        size_t num = static_cast<size_t>(std::distance(begin, end));
         if (v.size() + num > N)
             throw OutOfRangeException();
         v.insert(v.end(), begin, end);
     }
     
+    //METHODS
     int     shortestSpan();
     int     longestSpan();
+    void    addNumber(int);
     std::vector<int>    getV() const;
 
     Span& operator=(const Span& copy);

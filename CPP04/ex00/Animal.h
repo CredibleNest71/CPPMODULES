@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:24:51 by mresch            #+#    #+#             */
-/*   Updated: 2024/11/06 13:16:27 by mresch           ###   ########.fr       */
+/*   Updated: 2024/11/14 11:24:25 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ public:
     virtual ~Animal();
     Animal(const Animal&);
 
-    Animal operator=(const Animal&);
+    Animal& operator=(const Animal&);
 
     std::string getType() const;
     virtual void makeSound() const;

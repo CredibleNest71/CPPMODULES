@@ -52,6 +52,10 @@
         "iomanip": "cpp",
         "numbers": "cpp",
         "ranges": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "*.tpp": "cpp",
+        "complex": "cpp",
+        "stack": "cpp",
+        "map": "cpp"
     }
 }
