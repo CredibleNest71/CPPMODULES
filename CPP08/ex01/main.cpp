@@ -24,7 +24,7 @@ int main()
     sp.addNumber(11);
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
-    std::cout << sp << std::endl;
+    std::cout << "content:" << sp << std::endl;
     
     std::cout << "ADD 100 TEST" << std::endl;
     Span span = Span(100);
@@ -33,7 +33,7 @@ int main()
     }
     std::cout << span.shortestSpan() << std::endl;
     std::cout << span.longestSpan() << std::endl;
-    std::cout << span << std::endl;
+    //std::cout << span << std::endl;
 
 
     std::cout << "ADD_RANGE TEST" << std::endl;
@@ -47,7 +47,7 @@ int main()
     range.addRange(vec.begin(), vec.end());
     std::cout << range.shortestSpan() << std::endl;
     std::cout << range.longestSpan() << std::endl;
-    std::cout << range << std::endl;
+    //std::cout << range << std::endl;
 
     return 0;
 }

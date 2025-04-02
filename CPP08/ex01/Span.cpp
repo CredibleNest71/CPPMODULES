@@ -55,10 +55,10 @@
         return v;
     }
     Span& Span::operator=(const Span& copy){
-    if (this != &copy) {
-        N = copy.N;
-        v = copy.v;
-    }
+        if (this != &copy) {
+            N = copy.N;
+            v = copy.v;
+        }
     return *this;
     }
 
