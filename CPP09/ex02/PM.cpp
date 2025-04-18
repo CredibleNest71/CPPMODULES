@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 13:12:02 by mresch            #+#    #+#             */
-/*   Updated: 2025/04/16 12:55:43 by mresch           ###   ########.fr       */
+/*   Updated: 2025/04/18 17:07:36 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int PM::readInput(const std::string& input) {
     }
     return 0;
 }
+
 void PM::printVector(std::vector<int>& v, int limit) {
     if (limit < 0 || limit > (int)v.size()) {
         limit = v.size();
