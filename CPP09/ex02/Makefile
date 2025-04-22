@@ -4,7 +4,7 @@ NAME	=	PmergeME
 
 FLAGS	=	-Wall -Wextra -Werror -g -std=c++98
 
-SRC		=	main.cpp PM.cpp
+SRC		=	main.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
