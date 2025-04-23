@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:28:03 by mresch            #+#    #+#             */
-/*   Updated: 2025/04/22 16:50:48 by mresch           ###   ########.fr       */
+/*   Updated: 2025/04/23 12:32:44 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,26 @@
 # include <deque>
 # include <algorithm>
 # include <stdexcept>
-# include <sstream> // Added for std::istringstream
-# include <utility> // Added for std::pair
+# include <sstream> 
+# include <utility> 
 
 extern int global;
+
+template<typename NestedContainer>
+bool sorted(NestedContainer& v){
+    int curr = 0;
+    bool ret = true;
+    for (size_t i = 0; i < v.size(); i++){
+        if (v[i].front() < curr){
+            std::cout << "Not sorted: " << v[i].front() << " < " << curr << std::endl;
+            ret = false;
+        }
+        curr = v[i].front();
+    }
+    if (ret)
+        std::cout << "Sorted!" << std::endl;
+    return ret;
+}
 
 template<typename T>
 void printVec(T& v){

@@ -6,17 +6,16 @@ BitcoinExchange::BitcoinExchange(){}
 int BitcoinExchange::readFromFile(const std::string& filename){
     std::ifstream file(filename.c_str());
     if (!file.is_open()) {
-        throw std::runtime_error("Error: Unable to open file " + filename);
+        throw std::runtime_error("Error: Unable to open database file " + filename);
     }
 
     std::string line;
+    std::getline(file, line);
     while (std::getline(file, line)) {
-        //std::cout << line << std::endl; // Process each line as needed
         addExchangeRate(line);
     }
-
     file.close();
-    return 0; // Return appropriate value if needed
+    return 0;
 }
 
 void BitcoinExchange::addExchangeRate(const std::string& line){
@@ -68,15 +67,34 @@ double BitcoinExchange::stringToDouble(const std::string& str) const{
 
 int BitcoinExchange::checkDate(const std::string& date) const{
     std::string valid = "0123456789- ";
+    const char *dateFormat = "%Y-%m-%d";
+    std::tm tm = {};
     if (date.size() < 10 || date.find_first_not_of(valid) != std::string::npos) {
         throw std::invalid_argument("Error: Invalid date format: " + date);
     }
-    double year = stringToDouble(date.substr(0, 4));
-    double month = stringToDouble(date.substr(5, 2));
-    double day = stringToDouble(date.substr(8, 2));
-
+    if (!strptime(date.c_str(), dateFormat, &tm)) {
+        throw std::invalid_argument("Error: Invalid date format: " + date);
+    }
+    int year = tm.tm_year + 1900; // tm_year is years since 1900
+    int month = tm.tm_mon + 1; // tm_mon is 0-based
+    int day = tm.tm_mday;
+    //std::cout << date << ": Year: " << year << ", Month: " << month << ", Day: " << day << std::endl;
     if (year < 2000 || year > 2025 || month < 1 || month > 12 || day < 1 || day > 31) {
         throw std::invalid_argument("Error: Invalid date (year/month/day not valid): " + date);
+    }
+    if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
+        throw std::invalid_argument("Error: Invalid date (day not valid): " + date);
+    }
+    if (month == 2) {
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) { // Leap year
+            if (day > 29) {
+                throw std::invalid_argument("Error: Invalid date (day not valid): " + date);
+            }
+        } else {
+            if (day > 28) {
+                throw std::invalid_argument("Error: Invalid date (day not valid): " + date);
+            }
+        }
     }
     return 0;
 }
@@ -101,7 +119,7 @@ void BitcoinExchange::processInput(const std::string& input){
             double rate = getExchangeRate(date);
             double amountD = stringToDouble(amount);
             if (amountD < 0.0 || amountD > 1000.0) {
-                throw std::invalid_argument("Error: Amount is negative for date: " + date);
+                throw std::invalid_argument("Error: Amount is invalid for: " + date);
             }
             std::cout << date << "==> " << rate * amountD << std::endl;
         } catch (const std::exception& e) {
