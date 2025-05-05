@@ -6,7 +6,7 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:28:03 by mresch            #+#    #+#             */
-/*   Updated: 2025/04/23 12:32:44 by mresch           ###   ########.fr       */
+/*   Updated: 2025/04/24 16:51:57 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <sstream> 
 # include <utility> 
 
-extern int global;
+//extern int global;
 
 template<typename NestedContainer>
 bool sorted(NestedContainer& v){
@@ -81,7 +81,7 @@ int binaryInsertLeftover(NestedContainer&bigger, typename NestedContainer::value
         } else {
             right = mid - 1;
         }
-        global++;
+        //global++;
     }
     bigger.insert(bigger.begin() + left, leftover);
     return left;
@@ -100,7 +100,7 @@ int binaryInsert(NestedContainer &bigger, NestedContainer&smaller, int idx, type
         } else {
             right = mid - 1;
         }
-        global++;
+        //global++;
     }
     bigger.insert(bigger.begin() + left, smaller[idx]);
     for (size_t i = 0; i < idxes.size(); i++){
@@ -121,7 +121,7 @@ int fordjohnson(NestedContainer& arr) {
     for (size_t i = 0; i + 1 < arr.size(); i += 2) {
         value_type temp;
         if (arr[i].front() > arr[i + 1].front()) {
-            global++;
+            //global++;
             temp.insert(temp.end(), arr[i].begin(), arr[i].end());
             temp.insert(temp.end(), arr[i + 1].begin(), arr[i + 1].end());
         } else {

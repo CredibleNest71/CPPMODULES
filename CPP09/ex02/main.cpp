@@ -6,16 +6,14 @@
 /*   By: mresch <mresch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 17:06:28 by mresch            #+#    #+#             */
-/*   Updated: 2025/04/23 12:41:54 by mresch           ###   ########.fr       */
+/*   Updated: 2025/04/24 16:54:08 by mresch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PM.hpp"
+#include "PmergeMe.hpp"
 #include <ctime>
 
-// int fordjohnson(std::vector<std::vector<int> >& arr);
-//void printVecVec(std::vector<std::vector<int> >& v);
-int global = 0;
+//int global = 0;
 
 int stringToInt(const std::string& str) {
     std::istringstream iss(str);
@@ -60,22 +58,24 @@ int main(int ac, char **av) {
 
     std::clock_t startV = std::clock();
     fordjohnson(arr);
-    int compV = global;
-    global = 0;
+    //int compV = global;
+    //global = 0;
     std::clock_t endV = std::clock();
     double elapsed_time_vector = static_cast<double>(endV - startV) / CLOCKS_PER_SEC;
     
 
     std::clock_t startD = std::clock();
     fordjohnson(arrD);
-    int compD = global;
+    //int compD = global;
     std::clock_t endD = std::clock();
     double elapsed_time_deque = static_cast<double>(endD - startD) / CLOCKS_PER_SEC;
     
     std::cout << "After: " << std::endl;
     printVecVec(arr);
-    sorted(arr);
-    std::cout << "Time to proess a range of " << arr.size() << " elements with std::vector : " << elapsed_time_vector << " seconds, with " << compV << " comparisons" << std::endl;
-    std::cout << "Time to process a range of " << arrD.size() << " elements with std::deque : " << elapsed_time_deque << " seconds, with " << compD << " comparisons" << std::endl;
+    //sorted(arr);
+    // std::cout << "Time to proess a range of " << arr.size() << " elements with std::vector : " << elapsed_time_vector << " seconds, with " << compV << " comparisons" << std::endl;
+    // std::cout << "Time to process a range of " << arrD.size() << " elements with std::deque : " << elapsed_time_deque << " seconds, with " << compD << " comparisons" << std::endl;
+    std::cout << "Time to proess a range of " << arr.size() << " elements with std::vector : " << elapsed_time_vector << " seconds" << std::endl;
+    std::cout << "Time to process a range of " << arrD.size() << " elements with std::deque : " << elapsed_time_deque << " seconds" << std::endl;
     return 0;
 }
